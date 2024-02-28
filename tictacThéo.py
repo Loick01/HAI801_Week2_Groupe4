@@ -1,12 +1,11 @@
 import time
 
 def evaluate(board):
-    # Fonction d'évaluation basique pour le morpion
     for row in board:
         if all(cell == 'X' for cell in row):
-            return 1  # Victoire du joueur X
+            return 1  
         elif all(cell == 'O' for cell in row):
-            return -1  # Victoire du joueur O
+            return -1  
     
     for col in zip(*board):
         if all(cell == 'X' for cell in col):
@@ -55,7 +54,7 @@ def minimax(board, depth, is_maximizing):
 def main():
     start_time = time.time()
 
-    # Charger le fichier dataset.txt
+    
     with open('dataset.txt', 'r') as file:
         data = file.readlines()
 
@@ -70,7 +69,7 @@ def main():
         elif result == -1:
             print("Défaite pour", player)
         else:
-            print("Match nul pour", player)
+            print("Match nul")
 
     execution_time = time.time() - start_time
     print(f"Temps d'exécution : {execution_time} secondes")
